@@ -11,7 +11,7 @@ import utils.DBUtil;
 
 
 public class EmployeeValidator {
-    public static List<String>validate(Employee e, Boolean codeDuplicateCheckFlag, Boolean passwordCheckFlag ){
+    public static List<String>validate(Employee e, Boolean codeDuplicateCheckFlag, Boolean passwordCheckFlag){
         List<String> errors = new ArrayList<String>();
         String code_error = validateCode(e.getCode(),codeDuplicateCheckFlag);
         if(!code_error.equals("")){
@@ -22,7 +22,7 @@ public class EmployeeValidator {
             errors.add(name_error);
         }
         String password_error= validatePassword(e.getPassword(),passwordCheckFlag);
-        if(!name_error.equals("")){
+        if(!password_error.equals("")){
         errors.add(password_error);
         }
         return errors;
@@ -33,7 +33,7 @@ public class EmployeeValidator {
         }
         if(codeDuplicateCheckFlag){
             EntityManager em = DBUtil.createEntityManager();
-            long employees_count = (long)em.createNamedQuery("checkRegisterdCode",Long.class)
+            long employees_count = (long)em.createNamedQuery("checkRegisteredCode",Long.class)
                     .setParameter("code", code)
                     .getSingleResult();
             em.close();
@@ -50,7 +50,7 @@ public class EmployeeValidator {
         return "";
     }
     private static String validatePassword(String password, Boolean passwordCheckFlag){
-        if(passwordCheckFlag && (password == null||password.equals(""))){
+        if(passwordCheckFlag && (password == null || password.equals(""))){
             return "パスワードを入力してください。";
         }
         return "";

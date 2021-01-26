@@ -19,7 +19,7 @@ import javax.persistence.Table;
             ),
     @NamedQuery(
             name="getEmployeesCount",
-            query="SELECT e FROM Employee AS e"
+            query="SELECT COUNT(e) FROM Employee AS e"
             ),
     @NamedQuery(
             name="checkRegisteredCode",
