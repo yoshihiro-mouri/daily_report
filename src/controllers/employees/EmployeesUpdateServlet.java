@@ -17,7 +17,7 @@ import models.validators.EmployeeValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
 
-@WebServlet(name = "employees/update", urlPatterns = { "/employees/update" })
+@WebServlet("/employees/update")
 public class EmployeesUpdateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class EmployeesUpdateServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String _token = request.getParameter("_token");
+        String _token = (String)request.getParameter("_token");
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
@@ -73,8 +73,8 @@ public class EmployeesUpdateServlet extends HttpServlet {
                     } else {
             em.getTransaction().begin();
             em.getTransaction().commit();
-            request.getSession().setAttribute("flush", "更新が完了しました。");
             em.close();
+            request.getSession().setAttribute("flush", "更新が完了しました。");
 
             request.getSession().removeAttribute("employee_id");
             response.sendRedirect(request.getContextPath() + "/employees/index");

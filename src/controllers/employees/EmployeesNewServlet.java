@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Employee;
 
-@WebServlet(name = "employees/new", urlPatterns = { "/employees/new" })
+@WebServlet("/employees/new")
 public class EmployeesNewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

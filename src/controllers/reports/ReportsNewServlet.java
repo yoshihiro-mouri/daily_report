@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.Report;
 
-@WebServlet(name = "reports/new", urlPatterns = { "/reports/new" })
+@WebServlet("/reports/new")
 public class ReportsNewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public ReportsNewServlet() {

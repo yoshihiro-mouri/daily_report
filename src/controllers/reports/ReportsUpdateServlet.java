@@ -17,7 +17,7 @@ import models.Report;
 import models.validators.ReportValidator;
 import utils.DBUtil;
 
-@WebServlet(description = "reports/update", urlPatterns = { "/ReportsUpdateServlet" })
+@WebServlet("/reports/update")
 public class ReportsUpdateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -42,13 +42,13 @@ public class ReportsUpdateServlet extends HttpServlet {
                     request.setAttribute("errors",errors);
                     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/reports/edit.jsp");
                     rd.forward(request, response);
-                }else{
+                } else{
                     em.getTransaction().begin();
                     em.getTransaction().commit();
                     em.close();
                     request.getSession().setAttribute("flush", "更新が完了しました。");
                     request.getSession().removeAttribute("report_id");
-                    response.sendRedirect(request.getContentType());
+                    response.sendRedirect(request.getContextPath() + "/reports/index");
                 }
     }
     }

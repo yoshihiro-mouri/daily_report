@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.Employee;
 import utils.DBUtil;
 
-@WebServlet(name = "employees/show", urlPatterns = { "/employees/show" })
+@WebServlet("/employees/show")
 public class EmployeesShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

@@ -17,7 +17,7 @@ import models.validators.EmployeeValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
 
-@WebServlet(name = "employees/create", urlPatterns = { "/employees/create" })
+@WebServlet("/employees/create")
 public class EmployeesCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public EmployeesCreateServlet() {

@@ -16,7 +16,7 @@ import utils.DBUtil;
 import utils.EncryptUtil;
 
 
-@WebServlet(name = "login", urlPatterns = { "/login" })
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

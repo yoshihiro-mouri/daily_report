@@ -18,7 +18,7 @@ import models.Report;
 import models.validators.ReportValidator;
 import utils.DBUtil;
 
-@WebServlet(name = "reports/create", urlPatterns = { "/reports/create" })
+@WebServlet("/reports/create")
 public class ReportsCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
       public ReportsCreateServlet() {

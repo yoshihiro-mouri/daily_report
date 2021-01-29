@@ -14,7 +14,7 @@ import models.Employee;
 import utils.DBUtil;
 
 
-@WebServlet(name = "employees/destroy", urlPatterns = { "/employees/destroy" })
+@WebServlet("/employees/destroy")
 public class EmployeesDestroyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public EmployeesDestroyServlet() {
